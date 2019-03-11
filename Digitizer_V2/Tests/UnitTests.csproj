@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="DigitBuilderTests.cs" />
     <Compile Include="DigitizerTests.cs" />
+    <Compile Include="PrintableCharBuilderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DigitizerV2\DigitizerMain.csproj">

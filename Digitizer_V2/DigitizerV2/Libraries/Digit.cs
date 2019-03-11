@@ -9,6 +9,5 @@
         public bool BottomRight { get; set; } = true;
         public bool BottomLeft { get; set; } = true;
         public bool Bottom { get; set; } = true;
-
     }
 }

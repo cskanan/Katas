@@ -10,21 +10,54 @@ namespace DigitizerMain.Libraries
     public class Digitizer : IDigitizer
     {
         private IConsole _console;
-        string _input;
-        public Digitizer(IConsole console)
+        private string _input;
+        private IPrintableCharBuilder _printableCharBuilder;
+        public Digitizer(
+            IConsole console, 
+            IPrintableCharBuilder printableCharBuilder)
         {
-            _console = console;
+            _console =
+                console;
+            _printableCharBuilder =
+                printableCharBuilder;
         }
 
         public void PrintDigitizedInput()
         {
-            _console.WriteLine(_input);
+            (string line1, string line2, string line3) printableText =
+                _printableCharBuilder
+                    .Build(
+                        _input);
+
+            WriteLine(
+                    printableText
+                        .line1);
+            WriteLine(
+                    printableText
+                        .line2);
+            WriteLine(
+                    printableText
+                        .line3);
+
+            _console
+                .ReadLine();
+        }
+
+        private void WriteLine(
+            string output)
+        {
+            _console
+                .WriteLine(
+                    output);
         }
 
         public void RecieveInput()
         {
-            _console.WriteLine("Please enter digits");
-            _input = _console.ReadLine();
+            WriteLine(
+                "Please enter digits");
+            _input =
+                _console
+                    .ReadLine();
         }
     }
 }
